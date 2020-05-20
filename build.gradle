@@ -21,7 +21,7 @@ dependencies {
             'org.hibernate.validator:hibernate-validator',
             'org.springframework.boot:spring-boot-starter-web',
             'com.google.code.gson:gson:2.8.6',
-
+            'com.google.guava:guava:29.0-jre',
     )
 
     testImplementation(

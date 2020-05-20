@@ -62,9 +62,7 @@ class InterviewControllerTest {
     }
 
     /**
-     * checks just controller contract. Does not check returned string  content.
-     *
-     * @throws Exception
+     * checks controller contract only. Does not check returned string content.
      */
     @Test
     void parse_returnsString() throws Exception {
