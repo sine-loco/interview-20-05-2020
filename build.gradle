@@ -1,0 +1,60 @@
+plugins {
+    id 'io.freefair.lombok' version '5.1.0'
+    id 'java'
+    id 'org.springframework.boot' version '2.3.0.RELEASE'
+    id 'org.unbroken-dome.test-sets' version '2.2.1'
+}
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+generateLombokConfig.enabled = false
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(
+            platform( 'org.springframework.boot:spring-boot-dependencies:2.3.0.RELEASE' ),
+
+            'org.hibernate.validator:hibernate-validator',
+            'org.springframework.boot:spring-boot-starter-web',
+            'com.google.code.gson:gson:2.8.6',
+
+    )
+
+    testImplementation(
+            platform( 'org.junit:junit-bom:5.6.2' ),
+
+            'org.junit.jupiter:junit-jupiter-api',
+            'org.springframework.boot:spring-boot-starter-test',
+    )
+}
+
+lombok {
+    version = '1.18.4'
+}
+
+bootJar {
+    mainClassName = 'ru.snm.interview.InterviewApplication'
+}
+
+testSets {
+    integrationTest {
+        dirName = 'integration-test'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+integrationTest {
+    useJUnitPlatform()
+}
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+    gradleVersion = '6.4.1'
+}
